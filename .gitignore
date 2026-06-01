@@ -1,0 +1,11 @@
+# Private local memory
+/memory/
+
+# macOS
+.DS_Store
+
+# Scratch and temporary output
+scratch/
+tmp/
+temp/
+*.tmp

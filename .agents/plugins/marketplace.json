@@ -1,0 +1,20 @@
+{
+  "name": "simon-work-memory",
+  "interface": {
+    "displayName": "Simon Work Memory"
+  },
+  "plugins": [
+    {
+      "name": "simon-codex-work-memory-kit",
+      "source": {
+        "source": "local",
+        "path": "./plugins/simon-codex-work-memory-kit"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
