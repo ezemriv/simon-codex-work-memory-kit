@@ -1,90 +1,160 @@
-# simon-codex-work-memory-kit
+# Simon Work Memory Kit for Codex
 
-Plaintext memory for everyday professional work
+[Leer en español](README.es.md)
 
-`simon-codex-work-memory-kit` is a Codex-first plugin for keeping durable work context in simple local files. It helps Codex remember project conventions, current priorities, operating notes, and private context without adding a database, hosted service, or workflow platform.
+Make Codex remember useful work context without making you manage a database,
+a knowledge platform, or a complicated AI setup.
 
-## Origin
+This is for people who work across several real projects and get tired of
+explaining the same background every time. The kit gives Codex a simple private
+notebook: one part for each project, and one part for things that are useful
+across all your work.
 
-This kit began from Simon, an architect friend who had just installed Codex and wanted help across several interrelated architecture and interior-design projects without becoming an AI tools specialist.
+Example: Simon has one project for a house in Barcelona and another project for
+the facade of a historical building in Valencia. Each project has its own
+details, constraints, people, dates, and decisions. Some notes belong only to
+one project. Other notes, like Simon's preferred drawing-review workflow, are
+useful everywhere. This kit helps Codex keep those two kinds of memory separate.
 
-## What It Gives You
+```mermaid
+flowchart LR
+    Simon["Simon works with Codex"] --> BCN["House in Barcelona<br/>project folder"]
+    Simon --> VAL["Historical building facade<br/>project folder"]
 
-- A local Codex plugin with skills for setup, project memory, consolidation, and review.
-- A two-tier memory model that separates project working memory from a private global vault.
-- An aggressive-but-private autopilot that captures useful context while keeping personal or sensitive details local.
-- A no-infrastructure promise: plaintext files, your editor, and Codex.
-- A Codex-only v1, intentionally scoped before supporting other agents.
+    BCN --> BCNMem["Private project memory<br/>client preferences, decisions, constraints"]
+    VAL --> VALMem["Private project memory<br/>heritage rules, site notes, open questions"]
 
-## 10-Minute Setup
+    BCNMem --> Global["Global work memory<br/>Simon's reusable workflows and preferences"]
+    VALMem --> Global
+    Global --> Future["Future Codex sessions start with better context"]
+```
 
-1. Clone this repo and enter it:
+## What It Is For
 
-   ```bash
-   git clone <repo-url> simon-codex-work-memory-kit
-   cd simon-codex-work-memory-kit
-   ```
+Use this when you want Codex to remember things like:
 
-2. Register the repo-local marketplace and install the plugin:
+- what a project is about
+- decisions already made
+- recurring acronyms, people, places, and shorthand
+- how you like documents, reviews, or plans to be prepared
+- which context is private and should stay off public files
 
-   ```bash
-   codex plugin marketplace add .
-   codex plugin add simon-codex-work-memory-kit@simon-work-memory
-   ```
+It is not a hosted app. It does not send your notes to a separate service. It
+uses ordinary local text files that you and Codex can both inspect.
 
-3. Start a new Codex thread and say:
+## How It Works
 
-   ```text
-   Use $work-memory-setup to initialize Simon Work Memory Kit.
-   ```
+The kit creates two layers of memory:
 
-4. Codex creates `~/Work-Memory` and adds a bounded managed block to `~/.codex/AGENTS.md`.
-5. In each substantial work folder, Codex can then use `$work-memory-project-start` automatically, keep project memory in `memory/`, and consolidate cross-project lessons into the global vault.
+1. **Project memory** lives inside each serious work folder, in a private
+   `memory/` directory. This is for context that belongs to that project only.
+2. **Global work memory** lives in `~/Work-Memory`. This is for reusable notes
+   that help across projects.
 
-## Two-Tier Memory Model
+Codex also gets small instructions in `AGENTS.md` files so it knows when to read
+or update those memories. Public instructions stay public. Private details stay
+in private local files.
 
-This kit uses two simple layers:
+## The Easy Way To Ask Codex To Install It
 
-1. Project working memory in each substantial folder.
-   A bounded block in `AGENTS.md` tells Codex where project memory lives. The private `memory/` folder stores glossary terms, decisions, project context, people, and promotion candidates.
-2. Global work memory in `~/Work-Memory`.
-   This private vault stores cross-project lessons, reusable workflows, stable preferences, and a small wiki index/log so Codex can recover context across unrelated folders.
+If someone sent you this repository, open Codex and paste this:
 
-The project layer is the hot working cache. The global vault is the long-term commonplace book.
+```text
+Please install Simon Work Memory Kit globally for my Codex setup from:
+https://github.com/ezemriv/simon-codex-work-memory-kit.git
 
-## Aggressive-But-Private Autopilot
+Use the repo README as the source of truth. Register the plugin marketplace,
+install the plugin, then run the global setup skill. Ask me before saving any
+sensitive personal details, and explain what you changed when you are done.
+```
 
-Codex should be proactive about noticing reusable context: decisions, conventions, gotchas, glossary terms, collaborators, source locations, and recurring workflows. The kit encourages capturing that context in private memory when it helps future work, while keeping public repository files free of personal notes and sensitive details.
+Codex will probably need to run terminal commands. If it asks for permission,
+approve only if the commands match the install commands below.
 
-The default stance is simple: remember more privately, publish less publicly. Sensitive or unclear items are blocked, generalized, or sent to review.
+## Codex Install Instructions
 
-## Privacy Classes
+These instructions are for Codex or for a technical user helping someone else.
 
-The kit uses exactly five classes:
+Register this repository as a Codex plugin marketplace:
 
-- `public-repo-safe`: safe for public docs, templates, and examples.
-- `workspace-private`: useful only inside one project folder.
-- `global-private`: useful across projects in `~/Work-Memory`.
-- `sensitive-review`: useful maybe, but requires review before exact storage.
-- `do-not-store`: use for the immediate task only, then discard.
+```bash
+codex plugin marketplace add https://github.com/ezemriv/simon-codex-work-memory-kit.git --ref main
+```
+
+Install the plugin from that marketplace:
+
+```bash
+codex plugin add simon-codex-work-memory-kit@simon-work-memory
+```
+
+Start a new Codex thread and run the global setup:
+
+```text
+Use $work-memory-setup to initialize Simon Work Memory Kit.
+```
+
+After that, in each serious project folder, ask Codex:
+
+```text
+Use $work-memory-project-start for this folder.
+```
+
+From then on, Codex can use the kit while working:
+
+- `$work-memory-project-update` refreshes private project memory after meaningful work.
+- `$work-memory-consolidate` moves reusable lessons into `~/Work-Memory` when appropriate.
+- `$work-memory-review` helps inspect, clean up, or remove saved notes.
+
+## A Typical Workflow
+
+1. Simon opens the Barcelona house folder and asks Codex to help prepare a client
+   update.
+2. Codex reads that folder's private `memory/` notes before drafting.
+3. During the work, Simon explains that the client prefers concise visual
+   options rather than long written alternatives.
+4. Codex saves that as project memory for the Barcelona house.
+5. Later, Simon decides this is a general preference across projects.
+6. Codex records the generalized preference in `~/Work-Memory`.
+7. Next week, Simon opens the Valencia historical facade folder. Codex remembers
+   the general communication preference, but keeps the Barcelona-specific client
+   details out of the Valencia project.
+
+## Privacy Rules
+
+The kit uses five privacy classes:
+
+- `public-repo-safe`: safe for public docs, templates, examples, and README files.
+- `workspace-private`: useful inside one project folder only.
+- `global-private`: useful across projects, stored in `~/Work-Memory`.
+- `sensitive-review`: maybe useful, but a person should approve the exact note first.
+- `do-not-store`: use only for the current task and do not save.
+
+The default idea is simple: remember more privately, publish less publicly.
 
 ## No-Infrastructure Promise
 
-There is no server to deploy, no database to migrate, no account to provision, and no hidden sync layer. The memory system is just plaintext files arranged so Codex and humans can both use them.
+There is no server to deploy, no database to migrate, no account to provision,
+and no hidden sync layer. The memory system is just plaintext files arranged so
+Codex and humans can both use them.
 
-## Codex-only v1
+## Codex-Only v1
 
-Version 1 is for Codex. The repo may document ideas that later translate to other agents, but the first public shape stays focused on Codex behavior, Codex plugin documentation, and local plaintext memory.
+Version 1 is for Codex. The repo may document ideas that later translate to
+other agents, but the first public shape stays focused on Codex behavior, Codex
+plugin documentation, and local plaintext memory.
 
 ## Validate The Plugin
 
-After changing plugin metadata or skills, validate with the plugin validator from your local `plugin-creator` skill:
+After changing plugin metadata or skills, validate with the plugin validator
+from your local `plugin-creator` skill:
 
 ```bash
 python3 ~/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py plugins/simon-codex-work-memory-kit
 ```
 
-If your Python environment does not have PyYAML installed, run the same command from an environment that does. Codex plugin installation is the practical smoke test:
+If your Python environment does not have PyYAML installed, run the same command
+from an environment that does. Codex plugin installation is the practical smoke
+test:
 
 ```bash
 codex plugin marketplace add .
