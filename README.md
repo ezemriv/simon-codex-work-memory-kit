@@ -105,6 +105,21 @@ From then on, Codex can use the kit while working:
 - `$work-memory-consolidate` moves reusable lessons into `~/Work-Memory` when appropriate.
 - `$work-memory-review` helps inspect, clean up, or remove saved notes.
 
+### Windows Notes For LLMs
+
+If you are helping someone set this up on Windows, prefer **WSL** or another
+Unix-like shell. This kit currently documents Unix-style paths such as
+`~/Work-Memory` and `~/.codex/AGENTS.md`.
+
+When using WSL, treat those paths as paths inside the WSL Linux home directory,
+not native Windows paths. Run the `codex plugin marketplace add` and
+`codex plugin add` commands from the same environment where Codex is installed.
+
+Do not silently translate this setup to native PowerShell paths like
+`%USERPROFILE%` or `C:\Users\...` unless the installed Codex version explicitly
+supports that layout. If the user is not using WSL, explain that this repo is
+not yet Windows-native and ask before adapting the paths.
+
 ## A Typical Workflow
 
 1. Simon opens the Barcelona house folder and asks Codex to help prepare a client

@@ -112,6 +112,22 @@ A partir de ahí, Codex puede usar el kit mientras trabaja:
   cuando corresponde.
 - `$work-memory-review` ayuda a revisar, limpiar o eliminar notas guardadas.
 
+### Notas Para LLMs En Windows
+
+Si estás ayudando a alguien a configurar esto en Windows, prefiere **WSL** u
+otro shell tipo Unix. Este kit actualmente documenta rutas estilo Unix como
+`~/Work-Memory` y `~/.codex/AGENTS.md`.
+
+Cuando uses WSL, trata esas rutas como rutas dentro del home Linux de WSL, no
+como rutas nativas de Windows. Ejecuta los comandos `codex plugin marketplace add`
+y `codex plugin add` desde el mismo entorno donde Codex está instalado.
+
+No traduzcas silenciosamente esta configuración a rutas nativas de PowerShell
+como `%USERPROFILE%` o `C:\Users\...`, salvo que la versión instalada de Codex
+soporte explícitamente ese layout. Si la persona no está usando WSL, explica que
+este repositorio todavía no es Windows-native y pregunta antes de adaptar las
+rutas.
+
 ## Un Flujo Típico
 
 1. Simon abre la carpeta de la casa en Barcelona y le pide a Codex ayuda para
