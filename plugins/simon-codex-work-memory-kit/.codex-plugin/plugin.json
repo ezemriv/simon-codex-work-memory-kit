@@ -1,15 +1,15 @@
 {
   "name": "simon-codex-work-memory-kit",
   "version": "0.1.0",
-  "description": "Codex work memory workflows for capturing and reusing project context.",
+  "description": "Codex work memory setup for non-technical users who need local project memory and a structured global wiki managed automatically.",
   "author": {
     "name": "Ezequiel Rivero"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Simon Work Memory Kit",
-    "shortDescription": "Capture and reuse Codex work memory.",
-    "longDescription": "Simon Work Memory Kit helps Codex maintain local work memory by capturing project context, reviewing stored notes, and consolidating updates across sessions.",
+    "shortDescription": "Set up self-maintaining Codex work memory.",
+    "longDescription": "Simon Work Memory Kit helps a non-technical Codex user start with local project memory, a structured global work-memory wiki, raw source inboxes, and agent instructions that Codex maintains automatically across sessions.",
     "developerName": "Ezequiel Rivero",
     "category": "Productivity",
     "capabilities": [

@@ -21,6 +21,12 @@ Update only the project work memory system:
 
 If the structure is missing, use `$work-memory-project-start` first.
 
+## Language
+
+Use the memory language recorded in the global assistant context block in `~/.codex/AGENTS.md`. If the block is missing, use the dominant language already present in the project memory files. Keep generated project memory updates, wiki queue entries, and user-facing summaries in that language.
+
+Keep file paths, skill names, marker comments, and privacy class tokens such as `workspace-private` unchanged.
+
 ## Privacy Classes
 
 Use exactly these classes:
@@ -81,9 +87,9 @@ Move private or detailed items into `memory/`. Preserve useful history, but do n
 Use `memory/wiki-queue.md` for anything that might belong in the global wiki:
 
 ```markdown
-| Item | Why it matters | Class | Next action |
-| --- | --- | --- | --- |
-| short generalized note | why it may help across projects | global-private or sensitive-review | promote, rewrite, approve, or discard |
+| Item | Why it matters | Suggested wiki type | Class | Next action |
+| --- | --- | --- | --- | --- |
+| short generalized note | why it may help across projects | workflow, concept, decision, project, person, query, or source-summary | global-private or sensitive-review | promote, rewrite, approve, or discard |
 ```
 
 Good candidates:
@@ -95,6 +101,8 @@ Good candidates:
 - generalized lessons from repeated work
 
 Do not promote directly to `~/Work-Memory/` from this skill. Queue candidates here, then use `$work-memory-consolidate` for global promotion.
+
+When a meaningful decision or reusable lesson is clearly global and safe, run `$work-memory-consolidate` after updating local project memory so the global wiki can be updated automatically.
 
 ## Completion Check
 

@@ -7,6 +7,8 @@ description: Use when starting work in a substantial professional folder or proj
 
 Initialize local memory for a substantial work folder while preserving `AGENTS.md` and keeping private context out of public files.
 
+Assume the end user is not technical and should not need to manage `AGENTS.md`, `memory/`, or wiki files manually. Codex should maintain these files proactively during normal work, asking only before saving sensitive exact details or when a real user decision is needed.
+
 ## Auto-Initialize Substantial Work Folders
 
 Treat a folder as substantial when it is likely to matter beyond the current turn:
@@ -32,11 +34,17 @@ Use exactly these classes:
 
 If repository visibility is unknown, treat `AGENTS.md` as `public-repo-safe` only.
 
+## Language
+
+Use the memory language recorded in the global assistant context block in `~/.codex/AGENTS.md`. If that block is missing, use the dominant language of the current conversation. If the user starts in Spanish, create and maintain project `AGENTS.md`, `memory/`, and wiki queue files in Spanish.
+
+Use the memory language for prose, headings, examples, and summaries. Keep file paths, skill names, marker comments, and privacy class tokens such as `workspace-private` unchanged.
+
 ## Initialization Workflow
 
 ### 1. Ensure Global Setup Exists
 
-If `~/Work-Memory/` or the global block in `~/.codex/AGENTS.md` is missing, use `$work-memory-setup` first unless the user asked for project-local setup only.
+If `~/Work-Memory/`, `~/Work-Memory/wiki/SCHEMA.md`, the global work memory block, or the global wiki management block in `~/.codex/AGENTS.md` is missing, use `$work-memory-setup` first unless the user asked for project-local setup only.
 
 ### 2. Inspect Minimal Context
 
@@ -71,6 +79,8 @@ Use the kit templates:
 - `wiki-queue.md`: sources or notes that might become memory after review
 - `people/`, `projects/`, `context/`: optional deeper local notes
 
+Write starter headings and boilerplate in the memory language.
+
 If this is a git repository, ensure the root `.gitignore` contains `/memory/` before adding private `workspace-private` notes. Preserve existing ignore rules and add only that line when it is missing.
 
 ### 4. Preserve or Create `AGENTS.md`
@@ -81,7 +91,11 @@ Use these markers for the managed project block:
 <!-- BEGIN WORK MEMORY PROJECT -->
 ## Codex Project Memory
 
-Codex may use the local `memory/` folder for durable project context that should not be committed or shared publicly.
+Codex uses the local `memory/` folder for durable project context that should not be committed or shared publicly.
+
+The user is not expected to manage this `AGENTS.md` file, the `memory/` folder, or wiki promotion by hand. Codex is responsible for routine maintenance.
+
+Use the memory language from the global assistant context for generated instructions, memory notes, wiki queue entries, and user-facing summaries.
 
 Privacy classes:
 
@@ -97,9 +111,11 @@ Rules:
 - Keep project-specific private context in `memory/`.
 - Save project facts as `workspace-private` unless another class clearly applies.
 - Do not copy `workspace-private` or `global-private` notes into public files.
-- Treat unclear notes as `sensitive-review` and ask before saving.
+- After meaningful work, update project memory automatically and queue useful cross-project lessons for the global wiki.
+- Use `$work-memory-consolidate` when queued lessons, decisions, or reusable explanations should become durable global wiki pages.
+- Treat unclear or sensitive notes as `sensitive-review` and ask before saving exact details.
 - Never save `do-not-store` information.
-- When proposing a memory update, Codex should show the privacy class, target file, and reason first.
+- Summarize automatic memory updates with the privacy class, target file, and reason.
 
 <!-- END WORK MEMORY PROJECT -->
 ```

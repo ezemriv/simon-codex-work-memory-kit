@@ -12,11 +12,22 @@ Audit, redact, forget, and clean work memory so it stays useful, current, and pr
 Review only memory surfaces relevant to the request:
 
 - `~/Work-Memory/`
+- `~/Work-Memory/wiki/SCHEMA.md`
+- `~/Work-Memory/wiki/index.md`
+- `~/Work-Memory/wiki/log.md`
+- `~/.codex/AGENTS.md` managed assistant context block
 - `~/.codex/AGENTS.md` managed work memory block
+- `~/.codex/AGENTS.md` managed wiki management block
 - project `AGENTS.md` managed work memory block
 - project `memory/`
 
 Do not edit unrelated project files while reviewing memory.
+
+## Language
+
+Use the memory language recorded in the global assistant context block in `~/.codex/AGENTS.md`. Keep reviewed memory files and user-facing summaries in that language unless the user asks otherwise.
+
+Keep file paths, skill names, marker comments, and privacy class tokens such as `sensitive-review` unchanged.
 
 ## Privacy Classes
 
@@ -59,6 +70,10 @@ Look for:
 - exact names where roles would be enough
 - stale status that could mislead future work
 - duplicates that create conflicting truth
+- missing or invalid wiki frontmatter
+- broken `[[wikilinks]]`
+- wiki pages missing from `wiki/index.md`
+- unprocessed files in `raw/inbox/`
 
 ### 2. Apply the Right Action
 
@@ -95,6 +110,8 @@ After edits, search the reviewed memory locations for:
 - secret-like patterns when sensitive cleanup was requested
 - duplicate headings or repeated entries
 - managed block marker integrity
+- missing required wiki frontmatter
+- broken `[[wikilinks]]` or pages missing from `wiki/index.md`
 
 If verification finds remaining sensitive material, repeat the review.
 
@@ -107,3 +124,4 @@ Review is complete when:
 - `sensitive-review` items are redacted, generalized, approved, or discarded
 - public surfaces contain only `public-repo-safe` content
 - global memory contains only durable `global-private` or safer content
+- wiki pages follow `wiki/SCHEMA.md`, and `wiki/index.md` plus `wiki/log.md` reflect any changes

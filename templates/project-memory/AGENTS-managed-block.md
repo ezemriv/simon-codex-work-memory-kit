@@ -6,7 +6,11 @@ Copy this block into a project's `AGENTS.md` when using local project memory.
 <!-- BEGIN WORK MEMORY PROJECT -->
 ## Codex Project Memory
 
-Codex may use the local `memory/` folder for durable project context that should not be committed or shared publicly.
+Codex uses the local `memory/` folder for durable project context that should not be committed or shared publicly.
+
+The user is not expected to manage this `AGENTS.md` file, the `memory/` folder, or wiki promotion by hand. Codex is responsible for routine maintenance.
+
+Use the memory language from the global assistant context for generated instructions, memory notes, wiki queue entries, and user-facing summaries.
 
 Privacy classes:
 
@@ -22,9 +26,11 @@ Rules:
 - Keep project-specific private context in `memory/`.
 - Save project facts as `workspace-private` unless another class clearly applies.
 - Do not copy `workspace-private` or `global-private` notes into public files.
-- Treat unclear notes as `sensitive-review` and ask before saving.
+- After meaningful work, update project memory automatically and queue useful cross-project lessons for the global wiki.
+- Use `$work-memory-consolidate` when queued lessons, decisions, or reusable explanations should become durable global wiki pages.
+- Treat unclear or sensitive notes as `sensitive-review` and ask before saving exact details.
 - Never save `do-not-store` information.
-- When proposing a memory update, Codex should show the privacy class, target file, and reason first.
+- Summarize automatic memory updates with the privacy class, target file, and reason.
 
 <!-- END WORK MEMORY PROJECT -->
 ```

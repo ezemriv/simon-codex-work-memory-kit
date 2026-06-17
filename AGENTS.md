@@ -1,6 +1,7 @@
 # Repository Instructions
 
 This is a public Codex plugin and documentation repository for `simon-codex-work-memory-kit`.
+It exists to help a non-technical user install Codex on a fresh setup and get memory working from the start, without needing to manage agents files or local memory by hand.
 
 ## Working Rules
 

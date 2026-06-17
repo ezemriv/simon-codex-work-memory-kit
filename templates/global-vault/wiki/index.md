@@ -1,28 +1,53 @@
+---
+title: Global Wiki Index
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+type: index
+tags: [wiki, index]
+sources: []
+confidence: high
+---
+
 # Global Wiki Index
 
-This index helps Codex find private cross-project context quickly.
+This index helps Codex find private cross-project context quickly. Every durable wiki page should appear here.
+
+When generating this file for a user, write headings, notes, and guidance in the memory language recorded in the global assistant context. Keep file paths and privacy class tokens unchanged.
 
 ## How To Use
 
+- Read `SCHEMA.md` before changing the wiki.
 - Keep links and summaries short.
-- Put dated notes in `log.md`.
-- Put unprocessed source material in `../raw/` only when the user asks.
-- Use `global-private` for saved notes unless the user chooses another class.
+- Add every durable page to the right section.
+- Update `updated:` in this file after changes.
+- Append every wiki operation to `log.md`.
 
 ## Sections
 
-### Work Style
+### People
 
-- Add stable preferences, recurring workflows, and useful operating habits.
+- Add durable people context only when it helps future work.
 
 ### Projects
 
-- Add cross-project context that helps Codex understand how work connects.
+- Add cross-project or recurring project context.
 
-### People And Terms
+### Concepts
 
-- Add names, roles, acronyms, and shorthand only when they are useful across projects.
+- Add recurring ideas, domains, tools, places, and terms.
 
-### Sources
+### Decisions
 
-- Link raw files or notes that still need review.
+- Add important decisions worth remembering.
+
+### Workflows
+
+- Add stable preferences, routines, checklists, and useful operating habits.
+
+### Queries
+
+- Add substantial answers that would be useful to keep.
+
+### Source Summaries
+
+- Add summaries of source files or grouped ingests.

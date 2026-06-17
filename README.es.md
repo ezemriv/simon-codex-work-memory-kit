@@ -58,6 +58,22 @@ Codex también recibe pequeñas instrucciones en archivos `AGENTS.md`, para sabe
 cuándo leer o actualizar esas memorias. Las instrucciones públicas se quedan en
 archivos públicos. Los detalles privados se quedan en archivos locales privados.
 
+La persona que usa esto no necesita entender qué es un archivo `AGENTS.md` ni
+cómo se organizan las carpetas de memoria. Las instrucciones instaladas hacen
+que Codex sea responsable del mantenimiento rutinario de la memoria, pidiendo
+confirmación solo para material sensible o decisiones realmente ambiguas.
+
+Codex debe usar el idioma de la persona como idioma de memoria. Si la
+configuración empieza en español, los archivos `AGENTS.md`, archivos de memoria,
+páginas de wiki y resúmenes generados deben escribirse en español, salvo que la
+persona pida otra cosa.
+
+La vault global incluye una wiki ligera para LLMs: `wiki/SCHEMA.md`,
+`wiki/index.md`, `wiki/log.md`, carpetas tipadas de wiki y `raw/inbox/` para
+material fuente pendiente de ingest. Codex mantiene esta wiki automáticamente
+después de trabajo importante, decisiones relevantes, explicaciones reutilizables
+o actualizaciones de proyectos.
+
 ## La Forma Fácil De Pedirle A Codex Que Lo Instale
 
 Si alguien te envió este repositorio, abre Codex y pega esto:
@@ -66,9 +82,13 @@ Si alguien te envió este repositorio, abre Codex y pega esto:
 Instala Simon Work Memory Kit de forma global en mi configuración de Codex desde:
 https://github.com/ezemriv/simon-codex-work-memory-kit.git
 
-Usa el README del repositorio como fuente de verdad. Registra el marketplace del
-plugin, instala el plugin y después ejecuta el skill de configuración global.
-Pregúntame antes de guardar cualquier detalle personal sensible, y explícame qué
+Usa el README del repositorio como fuente de verdad. No soy una persona técnica:
+después de instalar el plugin, ejecuta el skill de configuración global y haz que
+Codex quede responsable de mantener mis archivos AGENTS.md, la memoria de mis
+proyectos y la wiki global de memoria de trabajo. Usa el idioma que estoy usando
+ahora para los archivos AGENTS.md, archivos de memoria, páginas de wiki y
+resúmenes que generes. Pregúntame solo antes de guardar detalles personales
+sensibles o cuando una decisión necesite realmente mi input, y explícame qué
 cambiaste cuando termines.
 ```
 

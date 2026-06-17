@@ -55,6 +55,20 @@ Codex also gets small instructions in `AGENTS.md` files so it knows when to read
 or update those memories. Public instructions stay public. Private details stay
 in private local files.
 
+The intended end user does not need to understand `AGENTS.md` files or memory
+folder conventions. The installed instructions make Codex responsible for
+routine memory upkeep, with user confirmation only for sensitive or genuinely
+ambiguous material.
+
+Codex should use the user's language as the memory language. If the setup starts
+in Spanish, generated `AGENTS.md` files, project memory files, wiki pages, and
+summaries should be written in Spanish unless the user asks otherwise.
+
+The global vault includes a lightweight LLM wiki: `wiki/SCHEMA.md`,
+`wiki/index.md`, `wiki/log.md`, typed wiki folders, and `raw/inbox/` for source
+material that still needs ingest. Codex maintains this wiki automatically after
+meaningful work, important decisions, reusable explanations, or project updates.
+
 ## The Easy Way To Ask Codex To Install It
 
 If someone sent you this repository, open Codex and paste this:
@@ -63,9 +77,13 @@ If someone sent you this repository, open Codex and paste this:
 Please install Simon Work Memory Kit globally for my Codex setup from:
 https://github.com/ezemriv/simon-codex-work-memory-kit.git
 
-Use the repo README as the source of truth. Register the plugin marketplace,
-install the plugin, then run the global setup skill. Ask me before saving any
-sensitive personal details, and explain what you changed when you are done.
+Use the repo README as the source of truth. I am not a technical user, so after
+installing the plugin, run the global setup skill and make Codex responsible for
+maintaining my AGENTS.md files, project memory, and global work-memory wiki.
+Use the language I am using now for generated AGENTS.md files, memory files, wiki
+pages, and summaries. Ask me only before saving sensitive personal details or
+when a decision truly needs my input, and explain what you changed when you are
+done.
 ```
 
 Codex will probably need to run terminal commands. If it asks for permission,
