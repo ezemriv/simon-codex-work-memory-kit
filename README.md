@@ -2,6 +2,30 @@
 
 [Leer en español](README.es.md)
 
+<!-- Replace this placeholder with the final comic image, for example:
+<p align="center">
+  <img src="assets/meet-simon.png" width="800" alt="Simon repeatedly explaining the same project to Codex">
+</p>
+-->
+
+## Meet Simon, Codex's Most Patient User
+
+Simon has explained the same project to Codex more times than he can count.
+
+The client is still the same. The building is still in Valencia. The preferred
+document format has not changed. And no, Simon still does not want a five-page
+answer.
+
+Simon is not trying to become a developer. He just wants to use Codex as a
+competent professional tool without starting every conversation from zero.
+
+So he gave Codex a memory.
+
+This repository installs a simple local system that helps Codex remember
+projects, decisions, preferences, workflows, and reusable knowledge—without
+requiring Simon to understand databases, knowledge graphs, or complicated AI
+infrastructure.
+
 Make Codex remember useful work context without making you manage a database,
 a knowledge platform, or a complicated AI setup.
 
