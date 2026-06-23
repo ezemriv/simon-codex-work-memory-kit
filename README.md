@@ -2,11 +2,9 @@
 
 [Leer en español](README.es.md)
 
-<!-- Replace this placeholder with the final comic image, for example:
 <p align="center">
   <img src="assets/meet-simon.png" width="800" alt="Simon repeatedly explaining the same project to Codex">
 </p>
--->
 
 ## Meet Simon, Codex's Most Patient User
 
